@@ -16,7 +16,6 @@ import {
   OptimizationSvg,
   PlanningSvg,
 } from "~/components/SVGs";
-import Typography from "~/components/Typography/Typography";
 import type { Route } from "./+types/home";
 
 gsap.registerPlugin(CSSPlugin);
@@ -30,7 +29,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const mySvgRef = useRef<HTMLObjectElement | any>(null);
+  // const mySvgRef = useRef<HTMLObjectElement | any>(null);
   const captionEl = useRef<HTMLDivElement>(null);
   const slidePos = useRef({ position: 10 });
 
@@ -61,7 +60,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const mySvgElement = mySvgRef.current;
+    const mySvgElement = reactCompareSliderRef.current;
     if (mySvgElement) {
       gsap.to(mySvgElement, {
         x: "15%",
@@ -90,36 +89,32 @@ export default function Home() {
         >
           <AhmedSvg />
         </div> */}
-        <div className="pt-10 w-[500px] pl-16">
+        <div className="pt-10 w-[400px]">
           <ReactCompareSlider
-            position={50}
+            position={42}
             ref={reactCompareSliderRef}
             transition="1s ease-out"
             handle={
               <ReactCompareSliderHandle
                 linesStyle={{
-                  background: "transparent",
+                  display: "none",
                 }}
                 buttonStyle={{
-                  backdropFilter: "blur(0px)",
-                  background: "transparent",
-                  border: 0,
-                  color: "transparent",
-                  boxShadow: "unset",
+                  display: "none",
                 }}
               />
             }
             itemOne={
-              <ReactCompareSliderImage src="/normal_ahmed.png" alt="before" />
+              <ReactCompareSliderImage src="/normal_ahmed.svg" alt="before" />
             }
             itemTwo={
-              <ReactCompareSliderImage src="/normal_ahmed.svg" alt="after" />
+              <ReactCompareSliderImage src="/normal_ahmed.png" alt="after" />
             }
           />
         </div>
 
-        {/* <div
-          className="opacity-0 transform -translate-y-1/2 text-primary absolute md:ml-20 lg:ml-16 top-1/2 left-1/2"
+        <div
+          className="absolute bottom-0 left-1/2 mb-2 opacity-0 backdrop-blur-2xl px-10 rounded-2xl text-white transform"
           ref={captionEl}
         >
           <h4 className="font-[Fredericka_the_Great] text-2xl sm:text-2xl md:text-3xl text-center">
@@ -128,11 +123,11 @@ export default function Home() {
           <h3 className="font-[Fredericka_the_Great] text-4xl sm:text-5xl md:text-5xl text-center whitespace-nowrap">
             Ahmed HAMEED
           </h3>
-        </div> */}
+        </div>
       </div>
 
       <div className="p-8 w-full">
-        <Typography className="mb-16">
+        <p className="mb-16">
           <h6 className="uppercase font-bold">Who am I 🤔</h6>
           <p className="md:text-lg text-[#757575]">
             {`I'm a software engineer with experience in web development. Coding
@@ -141,7 +136,7 @@ export default function Home() {
             Arabic food is my style and regarding to social status, (Searching
             for soulmate ...).`}
           </p>
-        </Typography>
+        </p>
 
         <div className="mb-16 flex flex-wrap">
           <ServiceCard
@@ -174,9 +169,7 @@ export default function Home() {
         </div>
 
         <div className="mb-16">
-          <Typography className="mb-16">
-            <h6 className="uppercase font-bold">Contact me ⌨️</h6>
-          </Typography>
+          <h6 className="uppercase font-bold">Contact me ⌨️</h6>
 
           {/* <BaseButton
             className="uppercase w-full bg-subject text-reverse justify-center"

@@ -1,7 +1,6 @@
 import React from "react";
 
 import { clsx } from "../../util/clsx";
-import Typography from "../Typography/Typography";
 
 interface ServiceCardProps {
   title: string;
@@ -24,10 +23,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <Icon className={clsx(["w-14 h-14 text-subject", iconClasses])} />
       )}
     </div>
-    <Typography className="flex flex-col justify-center md:mr-5">
+    <div className="flex flex-col justify-center md:mr-5">
       <h5 className="md:text-lg font-medium tracking-wider">{title}</h5>
-      {paragraph && <p className="md:text-lg text-[#757575]">{paragraph}</p>}
-    </Typography>
+      <p className="md:text-lg text-[#757575]">{paragraph}</p>
+    </div>
   </div>
 );
 

@@ -5,7 +5,7 @@ import Burger from "~/components/AsideBar/Burger";
 import useMousePosition from "~/components/AsideBar/hooks/mousePosition";
 import DetectOutsideClick from "~/components/DetectOutsideClick/DetectOutsideClick";
 import Footer from "~/components/Footer/Footer";
-import Brand from "~/components/shared/Brand";
+import KakieeLogo from "~/components/shared/KakieLogo";
 import { clsx } from "~/util/clsx";
 
 gsap.registerPlugin(CSSPlugin);
@@ -32,16 +32,22 @@ const Wrapper: React.FC<AsideBarProps> = ({}) => {
             className="bg-[#e0e0e0] text-center flex-1 px-2 py-0.5 text-md tracking-widest uppercase relative font-medium h-full flex flex-col justify-between"
           >
             <div className="pt-44">
-              <Brand />
+              <div className="flex flex-col items-center">
+                <KakieeLogo className="h-28 lg:h-32" />
+                <h1 className="text-2xl lg:text-3xl text-primary font-bold">
+                  Ahmed HAMEED
+                </h1>
+              </div>
+
               <ul>
                 <li className="my-2">
-                  <Link to="/about-me" className={className}>
-                    About me
+                  <Link to="/" className={className}>
+                    Home
                   </Link>
                 </li>
                 <li className="my-2">
-                  <Link to="/about-me" className={className}>
-                    About me
+                  <Link to="/portfolio" className={className}>
+                    Portfolio
                   </Link>
                 </li>
                 <li className="my-2">
@@ -72,45 +78,6 @@ const Wrapper: React.FC<AsideBarProps> = ({}) => {
       </div>
     </div>
   );
-
-  //   return (
-  //     <>
-  //       <DetectOutsideClick onOutsideClick={() => toggleMenu(() => false)}>
-  //         <div
-  //           className={clsx([
-  //             "fixed top-0 z-50 flex transition-transform transform duration-700 left-0 bg-red-500",
-  //             isMenuOpen ? "translate-x-0" : "-translate-x-72",
-  //           ])}
-  //         >
-  //           <div className="w-72 bg-aside flex flex-col flex-shrink-0 pr-3 h-screen">
-  //             <div className="flex-1 flex flex-col pt-5 pb-4">
-  //               {/* <Brand /> */}
-  //               <ul>
-  //                 <li>
-  //                   <Link to="/about-me">About me</Link>
-  //                 </li>
-  //               </ul>
-  //             </div>
-
-  //             {/* <Footer /> */}
-  //           </div>
-
-  //           <Burger
-  //             onClick={() => toggleMenu(!isMenuOpen)}
-  //             ref={burgerButtonRef}
-  //           />
-  //         </div>
-  //       </DetectOutsideClick>
-
-  //       <div
-  //         className={`transition-transform transform duration-700 bg-green-500 min-h-screen ${
-  //           isMenuOpen ? "translate-x-72" : "translate-x-0"
-  //         }`}
-  //       >
-  //         {children}
-  //       </div>
-  //     </>
-  //   );
 };
 
 export default Wrapper;
