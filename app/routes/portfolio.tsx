@@ -16,8 +16,7 @@ export default function Home() {
       <div className="max-w-3xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="mb-16">
           <h6 className="uppercase font-bold">
-            [ Ahmed / +43677-6276-8620 ] Adding portfolio and relevent timeline
-            (Merge request) 🗃️
+            Add new working experience pull request feature 🗃️
           </h6>
         </div>
 
@@ -27,7 +26,7 @@ export default function Home() {
               {/* <Divider label={timelineGroup[0]?.year} /> */}
               <Timeline historyTimeline={timelineGroup} />
             </div>
-          )
+          ),
         )}
       </div>
     </section>

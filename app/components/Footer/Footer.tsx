@@ -7,19 +7,19 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
-    <div className={clsx(["flex flex-col flex-shrink-0 mb-12", className])}>
+    <div className={clsx(["flex flex-col mb-12", className])}>
       <div className="flex flex-col text-center content-center flex-1 p-4 text-primary text-sm">
         <p className="mb-2">
-          <span className="text-secondary">
-            2025 © ahmedhameed.dev
+          <span>
+            2026 © ahmedhameed.dev
             <br />
             Made with
           </span>
           <HeartSvg className="inline h-5 text-red-500" />
-          <span className="text-secondary">by </span>
+          <span>by </span>
           <span className="text-subject font-bold">Ahmed HAMEED</span>
         </p>
-        <div className="flex justify-center text-secondary">
+        <div className="flex justify-center">
           <a
             aria-label="linkedin link"
             className="cursor-pointer p-1"

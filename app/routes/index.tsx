@@ -2,12 +2,8 @@ import { Power4, gsap } from "gsap";
 import CSSPlugin from "gsap/dist/CSSRulePlugin";
 import EasePack from "gsap/dist/EasePack";
 import { useEffect, useRef } from "react";
-import {
-  ReactCompareSlider,
-  ReactCompareSliderHandle,
-  ReactCompareSliderImage,
-  useReactCompareSliderRef,
-} from "react-compare-slider";
+import * as ReactCompareSliderComponents from "react-compare-slider/components";
+import { useReactCompareSlider } from "react-compare-slider/hooks";
 import ServiceCard from "~/components/ServiceCard/ServiceCard";
 import {
   CodeSvg,
@@ -23,47 +19,50 @@ gsap.registerPlugin(EasePack);
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Hey! My name is Ahmed Hameed" },
+    {
+      name: "description",
+      content: "Welcome to my portfolio! I am a passionate developer.",
+    },
   ];
 }
 
 export default function Home() {
-  // const mySvgRef = useRef<HTMLObjectElement | any>(null);
   const captionEl = useRef<HTMLDivElement>(null);
-  const slidePos = useRef({ position: 10 });
+  const sliderEl = useRef<HTMLDivElement>(null);
+  const slidePos = useRef({ position: 42 });
 
-  // const {goToContactMe} = useNavigateToContactMe();
-
-  const reactCompareSliderRef = useReactCompareSliderRef();
+  const sliderProps = useReactCompareSlider({
+    defaultPosition: 42,
+    transition: "none",
+  });
 
   useEffect(() => {
+    const animatePosition = gsap.quickTo(slidePos.current, "position", {
+      duration: 0.6,
+      ease: Power4.easeOut,
+      onUpdate: () => {
+        sliderProps.setPosition(slidePos.current.position);
+      },
+    });
+
     function updateMousePosition(event: MouseEvent) {
       const percentage = 100 - (event.pageX / window.innerWidth) * 100;
-
-      gsap.to(slidePos.current, {
-        position: percentage,
-        duration: 2,
-        ease: Power4.easeOut,
-        onUpdate: () => {
-          reactCompareSliderRef.current.setPosition(
-            Math.round(slidePos.current.position)
-          );
-        },
-      });
+      animatePosition(percentage);
     }
 
     window.addEventListener("mousemove", updateMousePosition, false);
-
-    return () =>
+    return () => {
       window.removeEventListener("mousemove", updateMousePosition, false);
-  }, []);
+      gsap.killTweensOf(slidePos.current);
+    };
+  }, [sliderProps.setPosition]);
 
   useEffect(() => {
-    const mySvgElement = reactCompareSliderRef.current;
+    const mySvgElement = sliderEl.current;
     if (mySvgElement) {
-      gsap.to(mySvgElement, {
-        x: "15%",
+      gsap.to(sliderEl.current, {
+        x: "0%",
         opacity: 1,
         duration: 3,
         ease: Power4.easeInOut,
@@ -80,37 +79,38 @@ export default function Home() {
 
   return (
     <section>
-      <div className="relative flex justify-center bg-[#bdbdbd]">
-        <FlourishSvg className="text-[#757575] opacity-20 absolute top-2 left-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
-        <FlourishSvg className="text-[#757575] opacity-20 absolute transform rotate-180  bottom-2 right-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
-        {/* <div
-          className="w-[300px] opacity-0 invisible md:visible lg:ml-20 xl:ml-48 2xl:ml-80 pt-16 px-7"
-          ref={mySvgRef}
-        >
-          <AhmedSvg />
-        </div> */}
-        <div className="pt-10 w-[400px]">
-          <ReactCompareSlider
-            position={42}
-            ref={reactCompareSliderRef}
-            transition="1s ease-out"
-            handle={
-              <ReactCompareSliderHandle
-                linesStyle={{
-                  display: "none",
-                }}
-                buttonStyle={{
-                  display: "none",
-                }}
-              />
-            }
-            itemOne={
-              <ReactCompareSliderImage src="/normal_ahmed.svg" alt="before" />
-            }
-            itemTwo={
-              <ReactCompareSliderImage src="/normal_ahmed.png" alt="after" />
-            }
-          />
+      <div className="relative flex justify-center bg-light-bg dark:bg-dark-bg">
+        <FlourishSvg className="text-[#fff] opacity-50 absolute top-2 left-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
+        <FlourishSvg className="text-[#fff] opacity-50 absolute transform rotate-180  bottom-2 right-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
+
+        {/* My image and my image vector shape in a slider with mouse move animation */}
+        <div className="pt-10 w-100 -translate-x-[15%]" ref={sliderEl}>
+          <ReactCompareSliderComponents.Provider {...sliderProps}>
+            <ReactCompareSliderComponents.Root>
+              <ReactCompareSliderComponents.Item item="itemOne">
+                <ReactCompareSliderComponents.Image
+                  src="/normal_ahmed.svg"
+                  alt="before"
+                />
+              </ReactCompareSliderComponents.Item>
+              <ReactCompareSliderComponents.Item item="itemTwo">
+                <ReactCompareSliderComponents.Image
+                  src="/normal_ahmed.png"
+                  alt="after"
+                />
+              </ReactCompareSliderComponents.Item>
+              <ReactCompareSliderComponents.HandleRoot>
+                <ReactCompareSliderComponents.Handle
+                  linesStyle={{
+                    display: "none",
+                  }}
+                  buttonStyle={{
+                    display: "none",
+                  }}
+                />
+              </ReactCompareSliderComponents.HandleRoot>
+            </ReactCompareSliderComponents.Root>
+          </ReactCompareSliderComponents.Provider>
         </div>
 
         <div
@@ -127,7 +127,7 @@ export default function Home() {
       </div>
 
       <div className="p-8 w-full">
-        <p className="mb-16">
+        <div className="mb-16">
           <h6 className="uppercase font-bold">Who am I 🤔</h6>
           <p className="md:text-lg text-[#757575]">
             {`I'm a software engineer with experience in web development. Coding
@@ -136,7 +136,7 @@ export default function Home() {
             Arabic food is my style and regarding to social status, (Searching
             for soulmate ...).`}
           </p>
-        </p>
+        </div>
 
         <div className="mb-16 flex flex-wrap">
           <ServiceCard

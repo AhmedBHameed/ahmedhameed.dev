@@ -1,4 +1,4 @@
-import {memo} from 'react';
+import { memo } from "react";
 
 const Sun: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
@@ -50,4 +50,4 @@ const Sun: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const SunSvg = memo(Sun);
-export {SunSvg};
+export { SunSvg };

@@ -1,8 +1,4 @@
-import {
-  ChatBubbleLeftIcon,
-  TagIcon,
-  UserCircleIcon,
-} from "@heroicons/react/24/solid";
+import { TagIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { Fragment, useCallback } from "react";
 import { clsx } from "../../util/clsx";
 
@@ -37,16 +33,9 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
               <div className="relative">
                 <img
                   alt=""
-                  className="ring-subject h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-4 ring-white"
+                  className="ring-subject h-10 w-10 rounded-full flex items-center justify-center ring-4 ring-gray-300 dark:ring-gray-300"
                   src={timelineInfo.imageUrl}
                 />
-
-                <span className="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
-                  <ChatBubbleLeftIcon
-                    aria-hidden="true"
-                    className="h-5 w-5 text-[#757575]"
-                  />
-                </span>
               </div>
               <div className="min-w-0 flex-1">
                 <div>
@@ -58,11 +47,11 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
                       {timelineInfo.person.name}
                     </a>
                   </div>
-                  <p className="mt-0.5 text-sm text-[#757575]">
+                  <p className="mt-0.5 text-sm">
                     Commented {timelineInfo.date}
                   </p>
                 </div>
-                <div className="mt-2 text-sm text-[#757575]">
+                <div className="mt-2 text-sm">
                   <p>{timelineInfo.comment}</p>
                 </div>
               </div>
@@ -73,16 +62,13 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
             <>
               <div>
                 <div className="relative px-1">
-                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4 ring-white flex items-center justify-center">
-                    <UserCircleIcon
-                      aria-hidden="true"
-                      className="h-5 w-5 text-[#757575]"
-                    />
+                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4 flex items-center justify-center ring-gray-200 dark:ring-gray-300">
+                    <UserCircleIcon aria-hidden="true" className="h-5 w-5" />
                   </div>
                 </div>
               </div>
               <div className="min-w-0 flex-1 py-1.5">
-                <div className="text-sm text-[#757575]">
+                <div className="text-sm">
                   <a
                     className="font-medium text-primary"
                     href={timelineInfo.person.href}
@@ -106,16 +92,13 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
             <>
               <div>
                 <div className="relative px-1">
-                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4 ring-white flex items-center justify-center">
-                    <TagIcon
-                      aria-hidden="true"
-                      className="h-5 w-5 text-[#757575]"
-                    />
+                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4  flex items-center justify-center ring-gray-200 dark:ring-gray-300">
+                    <TagIcon aria-hidden="true" className="h-5 w-5" />
                   </div>
                 </div>
               </div>
               <div className="min-w-0 flex-1 py-0">
-                <div className="text-sm leading-8 text-[#757575]">
+                <div className="text-sm leading-8">
                   <span className="mr-0.5">
                     <a
                       className="font-medium text-primary"
@@ -155,29 +138,27 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
           return null;
       }
     },
-    []
+    [],
   );
 
   return (
-    <div className="flow-root">
-      <ul className="-mb-8">
-        {historyTimeline.map((historyTimelineInfo, index) => (
-          <li key={historyTimelineInfo.id}>
-            <div className="relative pb-8">
-              {index !== historyTimeline.length - 1 ? (
-                <span
-                  aria-hidden="true"
-                  className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200"
-                />
-              ) : null}
-              <div className="relative flex items-start space-x-3">
-                {renderTimelineType(historyTimelineInfo)}
-              </div>
+    <ul>
+      {historyTimeline.map((historyTimelineInfo, index) => (
+        <li key={historyTimelineInfo.id}>
+          <div className="relative pb-8">
+            {index !== historyTimeline.length - 1 ? (
+              <span
+                aria-hidden="true"
+                className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-100 dark:bg-gray-300 opacity-40"
+              />
+            ) : null}
+            <div className="relative flex items-start space-x-3 text-gray-800 dark:text-gray-50">
+              {renderTimelineType(historyTimelineInfo)}
             </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 

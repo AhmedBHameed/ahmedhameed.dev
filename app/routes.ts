@@ -11,5 +11,6 @@ export default [
   layout("layouts/wrapper.tsx", [
     index("routes/index.tsx"),
     route("portfolio", "routes/portfolio.tsx"),
+    route("hire-me", "routes/hire-me.tsx"),
   ]),
 ] satisfies RouteConfig;

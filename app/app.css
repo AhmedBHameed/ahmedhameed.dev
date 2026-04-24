@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-sans:
@@ -6,66 +8,9 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* Root as light theme */
-:root {
-  --color-bg-primary: #fafafa;
-  --color-bg-secondary: #bdbdbd;
-  --color-bg-aside: #e0e0e0;
-  --color-bg-subject: #228896;
-  --color-bg-dark-subject: #19626c;
-
-  --color-border-subject: #228896;
-
-  --color-text-primary: black;
-  --color-text-secondary: #757575;
-  --color-text-subject: #228896;
-  --color-text-dark-subject: #19626c;
-  --color-text-reverse: #fafafa;
-
-  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  --font-weight-normal: 400;
-  --font-weight-display: 400;
-  --font-weight-btn: 600;
-
-  --rounded-btn: 0.25rem;
-}
-
-.dark {
-  --color-bg-primary: #101116;
-  --color-bg-secondary: #262833;
-  --color-bg-aside: #3c4051;
-  --color-bg-subject: #fbae5f;
-  --color-bg-dark-subject: #fa952d;
-
-  --color-border-subject: #fbae5f;
-
-  --color-text-primary: white;
-  --color-text-secondary: #d6d6d6;
-  --color-text-subject: #fbae5f;
-  --color-text-dark-subject: #fa952d;
-  --color-text-reverse: #101116;
-
-  --font-display: Georgia, Times, "Times New Roman", serif;
-  --font-body:
-    Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans",
-    "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana,
-    "Verdana Ref", sans-serif;
-
-  --font-weight-normal: 400;
-  --font-weight-display: 400;
-  --font-weight-btn: 600;
-
-  --rounded-btn: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
-  background-color: #fafafa;
-  font-family: "Roboto";
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
 }
