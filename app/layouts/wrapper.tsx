@@ -56,11 +56,11 @@ const Wrapper: React.FC<AsideBarProps> = ({}) => {
                     Hire me
                   </Link>
                 </li>
-                <li className="my-2">
+                {/* <li className="my-2">
                   <Link to="/about-me" className={className}>
                     About me
                   </Link>
-                </li>
+                </li> */}
                 <li className="my-2">
                   <button
                     className="text-5xl cursor-pointer"

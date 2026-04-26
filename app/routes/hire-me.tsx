@@ -5,7 +5,6 @@ import ServiceCard from "~/components/ServiceCard/ServiceCard";
 import {
   ApiSvg,
   DockerSvg,
-  EmailSvg,
   ProjectStructureSvg,
   QuoteSvg,
 } from "~/components/SVGs";
@@ -106,13 +105,13 @@ export default function HireMe() {
             title="From the wise words of Steve Jobs, “IT DOESN'T MAKE SENSE TO HIRE SMART PEOPLE AND TELL THEM WHAT TO DO; WE HIRE SMART PEOPLE SO THEY CAN TELL US WHAT TO DO.”"
           />
 
-          <a
+          {/* <a
             className="flex w-full items-center justify-center gap-3 bg-subject px-4 py-3 text-reverse uppercase"
             href="mailto:contact@ahmedhameed.dev"
           >
             <EmailSvg className="text-reverse" />
             Hire me
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

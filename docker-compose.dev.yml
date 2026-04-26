@@ -1,0 +1,20 @@
+networks:
+  starlink:
+    driver: bridge
+
+services:
+  web:
+    command: [ "npm", "run", "dev", "--", "--host", "0.0.0.0" ]
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      target: development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/usr/src/app
+    networks:
+      - starlink
+    build:
+      context: .
+      dockerfile: Dockerfile

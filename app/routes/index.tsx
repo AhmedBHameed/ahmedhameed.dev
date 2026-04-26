@@ -80,8 +80,8 @@ export default function Home() {
   return (
     <section>
       <div className="relative flex justify-center bg-light-bg dark:bg-dark-bg">
-        <FlourishSvg className="text-[#fff] opacity-50 absolute top-2 left-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
-        <FlourishSvg className="text-[#fff] opacity-50 absolute transform rotate-180  bottom-2 right-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
+        <FlourishSvg className="opacity-50 absolute top-2 left-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
+        <FlourishSvg className="opacity-50 absolute transform rotate-180  bottom-2 right-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
 
         {/* My image and my image vector shape in a slider with mouse move animation */}
         <div className="pt-10 w-100 -translate-x-[15%]" ref={sliderEl}>
@@ -128,13 +128,26 @@ export default function Home() {
 
       <div className="p-8 w-full">
         <div className="mb-16">
-          <h6 className="uppercase font-bold">Who am I 🤔</h6>
+          <h6 className="uppercase font-bold">Welcome!</h6>
           <p className="md:text-lg text-[#757575]">
-            {`I'm a software engineer with experience in web development. Coding
-            is my passion. I love training/coaching web technologies and
-            dreaming about building codding school which working on slowly.
-            Arabic food is my style and regarding to social status, (Searching
-            for soulmate ...).`}
+            I'm a software engineer, a dedicated professional focused on
+            building impactful work at the intersection of creativity, strategy,
+            and execution with deep experience. My work is driven by a
+            commitment to clarity, innovation, and delivering meaningful
+            results.
+          </p>
+        </div>
+
+        <div className="mb-16">
+          <h6 className="uppercase font-bold">About me!</h6>
+          <p className="md:text-lg text-[#757575]">
+            With a background of more than 10 yeas in software, I bring
+            experience in collaborative, fast-paced environments where ideas
+            turn into real-world outcomes. I enjoy working on projects that
+            challenge conventional thinking and push creative and technical
+            boundaries. My approach combines structured problem-solving with a
+            strong attention to detail, ensuring that every project is not only
+            visually compelling but also strategically sound.
           </p>
         </div>
 
@@ -163,15 +176,15 @@ export default function Home() {
           <ServiceCard
             className="w-full md:w-1/2"
             Icon={ConsultingSvg}
-            paragraph="With more than 5 years of experience, consulting and training are some of my services which focus on web technologies."
+            paragraph="With a huge experience, consulting and training are some of my services which focus on web technologies."
             title="CONSULTING AND TRAINING 👩‍💻"
           />
         </div>
 
-        <div className="mb-16">
-          <h6 className="uppercase font-bold">Contact me ⌨️</h6>
+        {/* <div className="mb-16">
+          <h6 className="uppercase font-bold">Contact me ⌨️</h6> */}
 
-          {/* <BaseButton
+        {/* <BaseButton
             className="uppercase w-full bg-subject text-reverse justify-center"
             Icon={<EmailSvg className="text-reverse" />}
             onClick={goToContactMe}
@@ -179,7 +192,7 @@ export default function Home() {
           >
             Contact Me
           </BaseButton> */}
-        </div>
+        {/* </div> */}
       </div>
     </section>
   );

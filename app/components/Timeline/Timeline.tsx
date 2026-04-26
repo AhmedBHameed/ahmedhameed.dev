@@ -33,7 +33,7 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
               <div className="relative">
                 <img
                   alt=""
-                  className="ring-subject h-10 w-10 rounded-full flex items-center justify-center ring-4 ring-gray-300 dark:ring-gray-300"
+                  className="ring-subject h-10 w-10 rounded-full flex items-center justify-center ring-4 ring-gray-600 dark:ring-gray-300"
                   src={timelineInfo.imageUrl}
                 />
               </div>
@@ -62,7 +62,7 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
             <>
               <div>
                 <div className="relative px-1">
-                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4 flex items-center justify-center ring-gray-200 dark:ring-gray-300">
+                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4 flex items-center justify-center ring-gray-600 dark:ring-gray-300">
                     <UserCircleIcon aria-hidden="true" className="h-5 w-5" />
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
             <>
               <div>
                 <div className="relative px-1">
-                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4  flex items-center justify-center ring-gray-200 dark:ring-gray-300">
+                  <div className="ring-subject h-8 w-8 bg-aside rounded-full ring-4  flex items-center justify-center ring-gray-600 dark:ring-gray-300">
                     <TagIcon aria-hidden="true" className="h-5 w-5" />
                   </div>
                 </div>
@@ -115,7 +115,7 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
                           className="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5 text-sm"
                           href={tag.href}
                         >
-                          <span className="absolute flex-shrink-0 flex items-center justify-center">
+                          <span className="absolute flex items-center justify-center">
                             <span
                               aria-hidden="true"
                               className={clsx("h-1.5 w-1.5 rounded-full")}
@@ -149,7 +149,7 @@ const Timeline: React.FC<TimelineProps> = ({ historyTimeline }) => {
             {index !== historyTimeline.length - 1 ? (
               <span
                 aria-hidden="true"
-                className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-100 dark:bg-gray-300 opacity-40"
+                className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-600 dark:bg-gray-300 opacity-40"
               />
             ) : null}
             <div className="relative flex items-start space-x-3 text-gray-800 dark:text-gray-50">
