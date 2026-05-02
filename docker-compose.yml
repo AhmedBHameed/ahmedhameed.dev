@@ -4,18 +4,15 @@ networks:
 
 services:
   web:
-    command: [ "npm", "run", "start" ]
+    command: [ "npm", "run", "start", "--", "--host", "0.0.0.0" ]
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      HOST: 0.0.0.0
-      target: production
     ports:
       - 3000:3000
-    volumes:
-      - ./:/usr/src/app
     networks:
       - starlink
     build:
       context: .
       dockerfile: Dockerfile
+      target: production

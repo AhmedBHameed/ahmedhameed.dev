@@ -8,7 +8,6 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: development
-      target: development
     ports:
       - 3000:3000
     volumes:
@@ -18,3 +17,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: development
