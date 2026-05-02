@@ -67,6 +67,23 @@ export default function HireMe() {
       <div className="w-full p-8">
         <div className="mb-16">
           <h6 className="uppercase font-bold">
+            You need a real software engineer after all ☺️
+          </h6>
+          <p className="md:text-lg text-[#757575]">
+            AI can assist with coding, debugging, and automation, but it lacks
+            the deep understanding, creativity, and accountability that human
+            software engineers bring. Building real-world systems often requires
+            nuanced decision making, ethical judgment, and collaboration areas
+            where humans still excel. Engineers don't just write code; they
+            define problems, design solutions, and adapt to changing
+            requirements in ways AI cannot fully replicate. Rather than
+            replacing developers, AI is more likely to remain a powerful tool
+            that enhances their productivity and capabilities.
+          </p>
+        </div>
+
+        <div className="mb-16">
+          <h6 className="uppercase font-bold">
             What do I offer as a service? 🤔
           </h6>
         </div>

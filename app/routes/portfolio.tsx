@@ -55,6 +55,21 @@ export const EXPRESS_TAG = {
   href: "https://expressjs.com/",
   color: "#EA8F2A",
 };
+export const NEST_TAG = {
+  name: "NestJS",
+  href: "https://nestjs.com/",
+  color: "#ea2845",
+};
+export const TERRAFORM_TAG = {
+  name: "NestJS",
+  href: "https://developer.hashicorp.com/terraform",
+  color: "#b457ff",
+};
+export const HEROKU_TAG = {
+  name: "Heroku",
+  href: "https://www.heroku.com/",
+  color: "#5a1ba9",
+};
 export const GRAPHQL_TAG = {
   name: "GraphQL",
   href: "https://graphql.org/",
@@ -82,17 +97,58 @@ export const VUE_TAG = {
 };
 
 const activity: HistoryTimelineModel[] = [
+  // GX group
   {
     id: "1",
     type: "assignment",
-    person: { name: "Your company", href: "#" },
+    person: { name: "XU Group", href: "#" },
     assigned: { name: "Ahmed HAMEED", href: "https://github.com/AhmedBHameed" },
-    date: "few seconds ago",
+    date: "tasks few seconds ago",
     year: now,
     tags: [],
   },
   {
     id: "2",
+    type: "tags",
+    person: {
+      name: "Ahmed HAMEED",
+      href: "https://www.ahmedhameed.dev/hire-me",
+    },
+    tags: [
+      HEROKU_TAG,
+      TERRAFORM_TAG,
+      MONGODB_TAG,
+      NEST_TAG,
+      ANGULAR_TAG,
+      EXPRESS_TAG,
+      NODE_TAG,
+      GRAPHQL_TAG,
+    ],
+    date: "More than 10 years (Experience)",
+    year: now,
+  },
+  {
+    id: "3",
+    type: "comment",
+    person: { name: "Ahmed HAMEED", href: "https://xu.de/" },
+    imageUrl: "/images/xu.de.png",
+    comment:
+      "Building, maintaining, enhancing SaaS digital platform for E-learning content as B2B company. As a Senior software engineer, I was responsible for architecting and building a scalable feature suitable for many clients in the business market to scale their abilities of sharing knowledge over the glob.",
+    date: "on Dec 2022",
+    year: now,
+  },
+  // My freelancing
+  {
+    id: "2",
+    type: "assignment",
+    person: { name: "Your company", href: "#" },
+    assigned: { name: "Ahmed HAMEED", href: "https://github.com/AhmedBHameed" },
+    date: "few seconds ago",
+    year: "2022",
+    tags: [],
+  },
+  {
+    id: "3",
     type: "tags",
     person: {
       name: "Ahmed HAMEED",
@@ -106,22 +162,22 @@ const activity: HistoryTimelineModel[] = [
       GRAPHQL_TAG,
       REACT_TESTING_LIBRARY_TAG,
     ],
-    date: "More than 5 years (Experience)",
-    year: now,
+    date: "More than 7 years (Experience)",
+    year: "2022",
   },
   {
-    id: "3",
+    id: "4",
     type: "comment",
     person: { name: "Ahmed HAMEED", href: "https://www.ahmedhameed.dev" },
     imageUrl: "https://avatars.githubusercontent.com/u/25675361?v=4",
     comment:
       "Freelancer/Contractor digital entrepreneur. By hiring me, I can provide you with the most modern technologies to build/improve your projects. I've worked with many digital companies which makes me experienced in the field. Please consider merging your project to my history timeline 🚀",
     date: "more than 6 years (Experience)",
-    year: now,
+    year: "2022",
   },
   // myBioma
   {
-    id: "4",
+    id: "5",
     type: "assignment",
     person: { name: "myBioma (Clickable)", href: "#" },
     assigned: { name: "Ahmed HAMEED", href: "https://github.com/AhmedBHameed" },
@@ -129,7 +185,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2021",
   },
   {
-    id: "5",
+    id: "6",
     type: "tags",
     person: {
       name: "Ahmed HAMEED",
@@ -140,7 +196,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2021",
   },
   {
-    id: "6",
+    id: "7",
     type: "comment",
     person: { name: "myBioma (Clickable)", href: "https://www.mybioma.com/en" },
     imageUrl: `/images/myBioma.jpg`,
@@ -151,7 +207,7 @@ const activity: HistoryTimelineModel[] = [
   },
   // Hi health
   {
-    id: "7",
+    id: "8",
     type: "assignment",
     person: { name: "hi.health (Clickable)", href: "https://hi.health/" },
     assigned: { name: "Ahmed HAMEED", href: "https://github.com/AhmedBHameed" },
@@ -159,7 +215,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2020",
   },
   {
-    id: "8",
+    id: "9",
     type: "tags",
     person: {
       name: "Ahmed HAMEED",
@@ -170,7 +226,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2020",
   },
   {
-    id: "9",
+    id: "10",
     type: "comment",
     person: { name: "hi.health (Clickable)", href: "https://hi.health/" },
     imageUrl: `/images/hihealth.jpg`,
@@ -181,7 +237,7 @@ const activity: HistoryTimelineModel[] = [
   },
   // Yelster digital
   {
-    id: "10",
+    id: "11",
     type: "assignment",
     person: {
       name: "Yelster digital (Clickable)",
@@ -192,7 +248,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2019",
   },
   {
-    id: "11",
+    id: "12",
     type: "tags",
     person: {
       name: "Ahmed HAMEED",
@@ -203,7 +259,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2019",
   },
   {
-    id: "12",
+    id: "13",
     type: "comment",
     person: {
       name: "Yelster digital (Clickable)",
@@ -218,7 +274,7 @@ const activity: HistoryTimelineModel[] = [
 
   // Moonshiner
   {
-    id: "13",
+    id: "14",
     type: "assignment",
     person: {
       name: "Moonshiner (Clickable)",
@@ -229,7 +285,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2018",
   },
   {
-    id: "14",
+    id: "15",
     type: "tags",
     person: {
       name: "Ahmed HAMEED",
@@ -240,7 +296,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2018",
   },
   {
-    id: "15",
+    id: "16",
     type: "comment",
     person: {
       name: "Moonshiner (Clickable)",
@@ -254,7 +310,7 @@ const activity: HistoryTimelineModel[] = [
   },
   // Wiser
   {
-    id: "16",
+    id: "17",
     type: "assignment",
     person: {
       name: "WisR (Clickable)",
@@ -265,7 +321,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2017",
   },
   {
-    id: "17",
+    id: "18",
     type: "tags",
     person: {
       name: "Ahmed HAMEED",
@@ -276,7 +332,7 @@ const activity: HistoryTimelineModel[] = [
     year: "2017",
   },
   {
-    id: "18",
+    id: "19",
     type: "comment",
     person: {
       name: "WisR (Clickable)",
