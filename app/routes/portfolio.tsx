@@ -61,7 +61,7 @@ export const NEST_TAG = {
   color: "#ea2845",
 };
 export const TERRAFORM_TAG = {
-  name: "NestJS",
+  name: "Terraform",
   href: "https://developer.hashicorp.com/terraform",
   color: "#b457ff",
 };

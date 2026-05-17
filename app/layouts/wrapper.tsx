@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import CSSPlugin from "gsap/dist/CSSRulePlugin";
+import { useCallback } from "react";
 import { Link, Outlet } from "react-router";
 import Burger from "~/components/AsideBar/Burger";
 import useMousePosition from "~/components/AsideBar/hooks/mousePosition";
@@ -18,6 +19,10 @@ const Wrapper: React.FC<AsideBarProps> = ({}) => {
   const { burgerButtonRef, isMenuOpen, toggleMenu } = useMousePosition();
   const { theme, setTheme } = useThemeSwitcher();
 
+  const handleLinkClick = useCallback(() => {
+    toggleMenu(false);
+  }, [toggleMenu]);
+
   const className =
     "relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-[var(--color-text-subject)] after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100 [&.active]:after:scale-x-100";
 
@@ -28,7 +33,7 @@ const Wrapper: React.FC<AsideBarProps> = ({}) => {
         isMenuOpen ? "translate-x-0" : "-translate-x-72",
       ])}
     >
-      <DetectOutsideClick onOutsideClick={() => toggleMenu(() => false)}>
+      <DetectOutsideClick onOutsideClick={handleLinkClick}>
         <div className="fixed z-50 top-0 -left-72 w-72 h-full flex items-center justify-center">
           <nav
             aria-label="Main navigation"
@@ -42,17 +47,25 @@ const Wrapper: React.FC<AsideBarProps> = ({}) => {
 
               <ul>
                 <li className="my-2">
-                  <Link to="/" className={className}>
+                  <Link to="/" className={className} onClick={handleLinkClick}>
                     Home
                   </Link>
                 </li>
                 <li className="my-2">
-                  <Link to="/portfolio" className={className}>
+                  <Link
+                    to="/portfolio"
+                    className={className}
+                    onClick={handleLinkClick}
+                  >
                     Portfolio
                   </Link>
                 </li>
                 <li className="my-2">
-                  <Link to="/hire-me" className={className}>
+                  <Link
+                    to="/hire-me"
+                    className={className}
+                    onClick={handleLinkClick}
+                  >
                     Hire me
                   </Link>
                 </li>

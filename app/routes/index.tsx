@@ -84,7 +84,10 @@ export default function Home() {
         <FlourishSvg className="opacity-50 absolute transform rotate-180  bottom-2 right-2 w-40 h-40 md:w-52 md:h-52 lg:w-96 lg:h-96" />
 
         {/* My image and my image vector shape in a slider with mouse move animation */}
-        <div className="pt-10 w-100 -translate-x-[15%]" ref={sliderEl}>
+        <div
+          className="pt-15 w-70 md:w-100 -translate-x-[15%] opacity-0"
+          ref={sliderEl}
+        >
           <ReactCompareSliderComponents.Provider {...sliderProps}>
             <ReactCompareSliderComponents.Root>
               <ReactCompareSliderComponents.Item item="itemOne">
